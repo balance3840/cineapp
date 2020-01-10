@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { CinesComponent } from './components/cines/cines.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { SliderComponent } from './components/slider/slider.component';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    SliderComponent
+    SliderComponent,
+    CinesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
