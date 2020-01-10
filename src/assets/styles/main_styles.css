@@ -824,7 +824,7 @@ section
 
 .featured
 {
-	padding-top: 92px;
+	padding-top: 40px;
 	padding-bottom: 32px;
 	background: #ffffff;
 }
@@ -846,8 +846,11 @@ section
 }
 .listing_image_container
 {
-	height: 100%;
-	overflow: hidden;
+	height: 475px !important;
+	overflow: hidden !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
 }
 .listing_image_container > img
 {
