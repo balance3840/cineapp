@@ -13,14 +13,47 @@
         <div class="row contact_form_row">
             <div class="col">
                 <div class="contact_form_container">
-                    <form novalidate  action="#" class="contact_form text-center">
+                    <form novalidate [formGroup]="peliculaForm" class="contact_form text-center"
+                        (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="col-lg-4">
-                                <input type="text" class="contact_input" placeholder="Your name" required="required">
+                                <input type="text" formControlName="nombre" class="contact_input"
+                                    placeholder="Nombre de la Pelicula" required="required">
+                                    <span [hidden]="!(erroresForm.nombre)">
+                                            {{erroresForm.nombre}}</span>
                             </div>
-     
+                            <div class="col-lg-4">
+                                <input type="text" formControlName="genero" class="contact_input"
+                                    placeholder="Ingresa el Genero" required="required">
+                                    <span [hidden]="!(erroresForm.genero)">
+                                            {{erroresForm.genero}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" formControlName="img" class="contact_input"
+                                    placeholder="Ingrese Ruta de Imagen" required="required">
+                                    <span [hidden]="!(erroresForm.img)">
+                                            {{erroresForm.img}}</span>
+                            </div>
                         </div>
-                        <button class="contact_button">send message</button>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <input type="text" formControlName="trailer" class="contact_input"
+                                    placeholder="Ingrese la Ruta del Trailer" required="required">
+                                    <span [hidden]="!(erroresForm.trailer)">
+                                            {{erroresForm.trailer}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="checkbox-inline">
+                                    <label><input type="checkbox" formControlName="activa" value="">  Activa</label>
+                                </div>
+                            </div>
+                        </div>
+                        <textarea class="contact_textarea contact_input" formControlName="sipnosis"
+                            placeholder="Ingrese la Sipnosis de la Pelicula" required="required">
+                            
+                        </textarea>
+                        <span [hidden]="!(erroresForm.sipnosis)">{{erroresForm.sipnosis}}</span>
+                        <button type="submit" [disabled]="peliculaForm.invalid"  class="contact_button">Guardar</button>
                     </form>
                 </div>
             </div>

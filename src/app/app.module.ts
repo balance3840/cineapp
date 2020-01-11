@@ -11,12 +11,11 @@ import { CinesComponent } from './components/cines/cines.component';
 import { HttpClientModule } from '@angular/common/http'
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-pelicula.component';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicula-registro.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +34,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
