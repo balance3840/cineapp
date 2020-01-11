@@ -25,7 +25,7 @@ export class PeliculaService {
   }
 
   setPeliculas(pelicula): Observable<Pelicula> {
-    return this.http.post<Pelicula>(baseUrl + 'peliculas/'+ pelicula, httpOptions)
+    return this.http.post<Pelicula>(baseUrl + 'peliculas/', pelicula, httpOptions)
     .pipe();
   }
 }

@@ -1,28 +1,3 @@
-<!--<div class="home">
-    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="assets/images/listings.jpg" data-speed="0.8"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="home_content text-center">
-                    <div class="home_title">Listings</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!-- <div class="home">
-    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="assets/images/listings.jpg" data-speed="0.8"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="home_content2 text-center">
-                    <div class="home_title2 text-center">Listado de Peliculas</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="featured">
     <div class="container">
         <div class="row">
@@ -41,7 +16,7 @@
                 <div class="listing">
                     <div class="listing_image">
                         <div class="listing_image_container"
-                            [ngStyle]="{ 'background-image': 'url(' + elemento.img + ')'}"></div>
+                            [ngStyle]="{ 'background-image': 'url(' + elemento.img + ')'}" ></div>
                         <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
                             <div class="tag tag_house"><a href="listings.html">{{elemento.genero}}</a></div>
                         </div>
@@ -51,9 +26,9 @@
                         <div
                             class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
                             <img src="/assets/images/icon_1.png" alt="">
-                            <a href="single.html">{{elemento.nombre}}</a>
+                            <a [routerLink]="['/detallePelicula', elemento.id]">{{elemento.nombre}}</a>
                         </div>
-                        <div class="tag tag_sale"><a href="listings.html">Ver Trailer</a></div>
+                        <div class="tag tag_sale"><a href="#" >Ver Trailer</a></div>
                     </div>
                 </div>
             </div>

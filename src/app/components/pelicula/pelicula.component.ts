@@ -14,7 +14,12 @@ export class PeliculaComponent implements OnInit {
 
   ngOnInit() {
     this.peliculaService.getPeliculas().subscribe(peliculas => this.vPeliculas = peliculas);
+
+    
   }
 
+   ver() {
+    console.log(this.vPeliculas);
+  }
 
 }
