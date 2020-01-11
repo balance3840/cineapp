@@ -447,6 +447,7 @@ section
 	height: 61px;
 	background: #ffffff;
 	padding-left: 64px;
+	border-bottom: 1px solid #0000001f;
 }
 .logo
 {
