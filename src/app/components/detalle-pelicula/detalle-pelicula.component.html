@@ -77,14 +77,14 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="card mt-5 mb-5">
+                <!-- generamos los card donde se guardan las criticas -->
+                <div class="card mt-5 mb-5" *ngFor="let critica of criticas">
                     <div class="card-header">
-                        Quote
+                        Critica
                     </div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <p>{{ critica.criticaPelicula }}</p>
                             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source
                                     Title</cite></footer>
                         </blockquote>
