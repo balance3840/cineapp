@@ -150,6 +150,11 @@ img
 {
 	max-width: 100%;
 }
+iframe
+{
+	max-width: 100%;
+}
+
 button:active
 {
 	outline: none;
@@ -867,7 +872,7 @@ section
 }
 .about
 {
-	padding-top: 92px;
+	padding-top: 50px;
 }
 div#precio_detalle_pelicula.tag_price
 {
@@ -976,7 +981,7 @@ div#precio_detalle_pelicula.tag_price
 }
 .about_text
 {
-	padding-top: 124px;
+	padding-top: 10px;
 }
 .listing_features
 {
@@ -1006,7 +1011,12 @@ div#precio_detalle_pelicula.tag_price
 .listing_video
 {
 	margin-top: 54px;
+	padding-bottom: 50px;
 }
+.listing_image.d-flex.flex-column.align-items-center.justify-content-center{
+	margin-top: 120px;
+}
+
 .video_container
 {
 	margin-top: 29px;
