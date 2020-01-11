@@ -671,6 +671,21 @@ section
 	font-weight: 500;
 	color: #ffffff;
 }
+.home_title2
+{
+	font-size: 50px;
+	font-weight: 500;
+	color: #ffffff;
+}
+
+.home_content2
+{
+	width: 423px;
+	padding-left: 47px;
+	padding-top: 41px;
+	padding-bottom: 48px;
+	padding-right: 50px;
+}
 .home_price_tag
 {
 	display: inline-block;
