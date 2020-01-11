@@ -18,12 +18,19 @@
         </div>
         <div class="ml-auto d-flex flex-row align-items-center justify-content-start">
 
-            <div class="log_reg d-flex flex-row align-items-center justify-content-start">
+            <div class="log_reg d-flex flex-row align-items-center justify-content-start" *ngIf="!isAuthenticated">
                 <ul class="d-flex flex-row align-items-start justify-content-start">
                     <li><a href="/login">Acceso</a></li>
                     <li><a href="/registro">Registro</a></li>
                 </ul>
             </div>
+
+            <div class="log_reg d-flex flex-row align-items-center justify-content-start" *ngIf="isAuthenticated">
+                <ul class="d-flex flex-row align-items-start justify-content-start">
+                    <li><a href="/dashboard">Dashboard</a></li>
+                </ul>
+            </div>
+
         </div>
     </div>
 
