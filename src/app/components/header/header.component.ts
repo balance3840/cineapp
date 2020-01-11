@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,15 @@ import { Title } from '@angular/platform-browser';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private titleService:Title) {
-    this.titleService.setTitle("Cine Valencia - Inicio");
-  }
+  @Input() isAuthenticated: Boolean;
+
+  constructor(private titleService:Title, private usuarioService: UsuarioService) {}
 
   ngOnInit() {
+    this.titleService.setTitle("Cine Valencia - Inicio");
+    this.usuarioService.isAuthenticatedObservable();
   }
+
+  ngOnChanges() {}
 
 }

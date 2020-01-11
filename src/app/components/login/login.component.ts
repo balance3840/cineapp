@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.usuarioService.login(this.usuario).subscribe(response => {
       if(response.authenticated) {
         localStorage.setItem("usuario", JSON.stringify(this.usuario));
+        this.usuarioService.isAuthenticatedObservable();
         this.router.navigate(['dashboard']);
       };
     });

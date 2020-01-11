@@ -20,7 +20,12 @@ export class PeliculaService {
     return this.http.get<Pelicula[]>(baseUrl + 'peliculas', httpOptions).pipe();
   }
 
-  getPeliculasID(id): Observable<Pelicula[]> {
+  getPeliculasID(id: number): Observable<Pelicula[]> {
     return this.http.get<Pelicula[]>(baseUrl + 'peliculas/'+ id , httpOptions).pipe();
+  }
+
+  setPeliculas(pelicula): Observable<Pelicula> {
+    return this.http.post<Pelicula>(baseUrl + 'peliculas/'+ pelicula, httpOptions)
+    .pipe();
   }
 }
