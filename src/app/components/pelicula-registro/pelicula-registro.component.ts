@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Pelicula } from "../../models/pelicula";
+import { PeliculaService } from "../../services/pelicula.service";
 
 @Component({
   selector: 'app-pelicula-registro',
@@ -71,7 +72,8 @@ export class PeliculaRegistroComponent implements OnInit {
   peliculaForm: FormGroup;
   pelicula: Pelicula;
   nuevaPelicula : Pelicula;
-  constructor(private fb: FormBuilder) { this.crearFormulario(); }
+  constructor(private fb: FormBuilder,
+    private peliculaService: PeliculaService) { this.crearFormulario(); }
 
   ngOnInit() {
   }
@@ -116,6 +118,8 @@ export class PeliculaRegistroComponent implements OnInit {
     this.nuevaPelicula.img = this.peliculaForm.value.img;
     this.nuevaPelicula.genero = this.peliculaForm.value.genero;
     this.nuevaPelicula.activa = this.peliculaForm.value.activa;
+
+    
   }
 
 

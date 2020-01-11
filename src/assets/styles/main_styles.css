@@ -1754,6 +1754,11 @@ section
 	color: white;
 	background-color: #3b5998;
   }
+
+  .custom-checkbox  {
+	width: 18px;
+	height: 18px;
+}
   
   /* Fallback for Edge
   -------------------------------------------------- */
@@ -1775,4 +1780,6 @@ section
 	.form-label-group input:-ms-input-placeholder {
 	  color: #777;
 	}
+
+
   }
