@@ -15,7 +15,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicula-registro.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +28,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     CinesComponent,
     DetallePeliculaComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    PeliculaRegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatGridListModule,
+    MatFormFieldModule,
     FormsModule
   ],
   providers: [],

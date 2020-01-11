@@ -35,13 +35,13 @@
                 </div>
             </div>
         </div>
-        <mat-grid-list cols="3" rowHeight="650px">
-            <mat-grid-tile *ngFor="let elemento of vPeliculas">
+        <div class="row featured_row">
+            <!-- Featured Item -->
+            <div class="col-lg-4" *ngFor="let elemento of vPeliculas">
                 <div class="listing">
                     <div class="listing_image">
                         <div class="listing_image_container"
-                            [ngStyle]="{ 'background-image': 'url(' + elemento.img + ')'}"
-                            style="background: url('/assets/images/halloween_kill.jpg');"></div>
+                            [ngStyle]="{ 'background-image': 'url(' + elemento.img + ')'}"></div>
                         <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
                             <div class="tag tag_house"><a href="listings.html">{{elemento.genero}}</a></div>
                         </div>
@@ -56,12 +56,8 @@
                         <div class="tag tag_sale"><a href="listings.html">Ver Trailer</a></div>
                     </div>
                 </div>
-            </mat-grid-tile>
+            </div>
 
-        </mat-grid-list>
-
-
-
-
+        </div>
     </div>
 </div>

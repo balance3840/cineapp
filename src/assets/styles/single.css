@@ -869,7 +869,7 @@ section
 {
 	padding-top: 92px;
 }
-.tag_price
+div#precio_detalle_pelicula.tag_price
 {
 	display: inline-block;
 	height: 37px;
@@ -880,6 +880,9 @@ section
 	font-size: 16px;
 	font-weight: 500;
 	color: #ffffff;
+	position: relative;
+	left: 0px;
+	bottom: 0px;
 }
 .listing_name
 {
