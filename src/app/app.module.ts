@@ -13,7 +13,8 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-pelicula.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicula-registro.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,9 @@ import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicu
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
