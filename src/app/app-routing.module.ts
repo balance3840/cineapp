@@ -11,7 +11,7 @@ import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicu
 const routes: Routes = [
   {'path': '', component: HomeComponent},
   {'path': 'pelicula', component: PeliculaComponent},
-  {'path': 'detallePelicula', component: DetallePeliculaComponent},
+  {'path': 'detallePelicula/:id', component: DetallePeliculaComponent},
   {'path': 'cines', component: CinesComponent},
   {'path': 'pelicula', component: PeliculaComponent},
   {'path': 'login', component: LoginComponent},
