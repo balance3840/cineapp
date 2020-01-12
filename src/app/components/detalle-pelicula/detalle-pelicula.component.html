@@ -1,11 +1,12 @@
 <div class="listing_container">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col" *ngIf="peliculas">
 
                 <!-- Image -->
-                <div class="listing_image d-flex flex-column align-items-center justify-content-center"><img
-                        src="https://i.imgur.com/SrYcdis.jpg" alt=""></div>
+                <div class="listing_image d-flex flex-column align-items-center justify-content-center" ><img
+                        src="{{peliculas.img}}" alt=""></div>
+                        
 
                 <!-- About -->
                 <div class="about">
@@ -30,15 +31,7 @@
                                 <h1>Sinopsis</h1>
                             </div>
                             <div class="about_text">
-                                <p>Nulla aliquet bibendum sem, non placerat risus venenatis at. Prae sent vulputate
-                                    bibendum dictum. Cras at vehicula urna. Suspendisse fringilla lobortis justo, ut
-                                    tempor leo cursus in. Nullam fermentum egestas quam nec malesuada. Donec non ligula
-                                    non risus luctus mattis non non diam. Integer placerat velit at vestibulum
-                                    vulputate. Donec lacinia vitae libero sed ultricies. Donec egestas dictum dolor ac
-                                    sagittis. Nunc facilisis iaculis est, ut aliquet lorem. Nam imperdiet convallis
-                                    imperdiet. Nam libero arcu, porttitor sed sapien nec, commodo accumsan nulla.
-                                    Praesent pretium neque nec dictum venenatis. Mauris nec metus vitae massa maximus
-                                    malesuada. Quisque cursus leo nec nulla dignissim, ut pulvinar diam porttitor.</p>
+                                <p>{{peliculas.sipnosis}}</p>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -46,12 +39,15 @@
                                 <div class="listing_title">
                                     <h3>Video</h3>
                                 </div>
+                                <p>{{peliculas.trailer}}</p>
+
                                 <div
                                     class="video_container d-flex flex-column align-items-center justify-content-center">
-                                    <iframe width="1000" height="563" src="https://www.youtube.com/embed/TcMBFSGVi1c"
+                                    <iframe width="1000" height="563" src="{{peliculas.trailer}}"
                                         frameborder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>
+                                        
                                 </div>
                             </div>
                         </div>
@@ -82,12 +78,14 @@
                 </div>
                 <!-- generamos los card donde se guardan las criticas -->
                 <div class="card mt-5 mb-5" *ngFor="let critica of criticas">
+
                     <div class="card-header">
                         Critica
                     </div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                             <p>{{ critica.criticaPelicula }}</p>
+                            <p>{{ peliculas.idPelicula }}</p>
                             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source
                                     Title</cite></footer>
                         </blockquote>

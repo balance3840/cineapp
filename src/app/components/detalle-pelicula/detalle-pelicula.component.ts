@@ -4,6 +4,9 @@ import { CriticaService } from 'src/app/services/critica.service';
 import { Critica } from 'src/app/models/critica';
 import { PeliculaService } from 'src/app/services/pelicula.service';
 import { Pelicula } from 'src/app/models/pelicula';
+import { Params, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-detalle-pelicula',
@@ -14,7 +17,7 @@ export class DetallePeliculaComponent implements OnInit {
 
   erroresForm = {
     'criticaPelicula': ''
-    };
+  };
   mensajesError = {
     'criticaPelicula': {
       'required': 'la critica es obligatorio.',
@@ -26,13 +29,28 @@ export class DetallePeliculaComponent implements OnInit {
   criticaForm: FormGroup;
   criticas: Critica[];
   critica: Critica;
-  nuevaCritica : Critica;
-  peliculasIds: number[];
-  peliculas : Pelicula;
+  nuevaCritica: Critica;
+  peliculas: Pelicula;
+  idPelicula: number;
 
-  constructor(private fb: FormBuilder, private criticaService: CriticaService, private peliculaService:PeliculaService) {this.crearFormulario(); }
+  constructor(
+    private fb: FormBuilder,    
+    private route: ActivatedRoute,
+    private criticaService: CriticaService, 
+    private peliculaService: PeliculaService) 
+    { this.crearFormulario(); }
 
-  crearFormulario(){
+  ngOnInit() {
+    let id = +this.route.snapshot.params['id'];
+    this.criticaService.getCriticas().subscribe(criticas => {
+      const filteredCriticas = criticas.filter(critica => critica.idPelicula === id);
+      this.criticas = filteredCriticas;
+    });
+    this.peliculaService.getPeliculasID(id).subscribe(peliculas => this.peliculas = peliculas);
+    this.idPelicula = id;
+  }
+
+  crearFormulario() {
     this.criticaForm = this.fb.group({
       criticaPelicula: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(150)]],
     });
@@ -41,16 +59,11 @@ export class DetallePeliculaComponent implements OnInit {
     this.onCambioValor();
   }
 
-  ngOnInit() {
-    this.criticaService.getCriticas().subscribe(criticas => this.criticas = criticas );
-    // this.peliculaService.getPeliculasID(1).subscribe(peliculas => this.peliculas = peliculas);
-  }
-
-  onCambioValor(data?: any){
+  onCambioValor(data?: any) {
     if (!this.criticaForm) { return; }
     const form = this.criticaForm;
     for (const field in this.erroresForm) {
-      // Se borrarán los mensajes de error previos
+      // Se borrarán los mensajes de error prev
       this.erroresForm[field] = '';
       const control = form.get(field);
       if (control && control.dirty && !control.valid) {
@@ -62,11 +75,12 @@ export class DetallePeliculaComponent implements OnInit {
     }
   }
 
-  onSubmit(){
+  onSubmit() {
     this.nuevaCritica = new Critica();
     this.nuevaCritica.criticaPelicula = this.criticaForm.value.criticaPelicula;
+    this.nuevaCritica.idPelicula = this.idPelicula;
 
-    this.criticaService.setCriticas(this.nuevaCritica).subscribe(critica=> this.critica = critica);
+    this.criticaService.setCriticas(this.nuevaCritica).subscribe(critica => this.critica = critica);
 
     this.criticaForm.reset({
       criticaPelicula: ''
