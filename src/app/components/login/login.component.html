@@ -3,7 +3,7 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Iniciar sesión {{ usuario | json }}</h5>
+                    <h5 class="card-title text-center">Iniciar sesión</h5>
                     <form class="form-signin" (ngSubmit)="onSubmit()">
                         <div class="form-label-group">
                             <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" class="form-control" placeholder="Email address"
