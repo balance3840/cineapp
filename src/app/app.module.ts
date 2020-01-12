@@ -18,6 +18,7 @@ import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicu
 import { ReactiveFormsModule } from '@angular/forms';
 import { PeliculaFormDialogComponent } from './components/pelicula-form-dialog/pelicula-form-dialog.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DetalleCineComponent } from './components/detalle-cine/detalle-cine.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     DashboardComponent,
     PeliculaRegistroComponent,
-    PeliculaFormDialogComponent
+    PeliculaFormDialogComponent,
+    DetalleCineComponent
   ],
   imports: [
     BrowserModule,
