@@ -1759,6 +1759,10 @@ section
 	width: 18px;
 	height: 18px;
 }
+
+.btnColorRed {
+	background-color: #bd2130 !important;
+}
   
   /* Fallback for Edge
   -------------------------------------------------- */

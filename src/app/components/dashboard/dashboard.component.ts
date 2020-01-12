@@ -18,6 +18,10 @@ export class DashboardComponent implements OnInit {
   pelicula: Pelicula;
   model: NgbDateStruct;
   date: {year: number, month: number};
+  accionProgramar: string = "programar";
+  accionProrrogar: string = "prorrogar";
+
+  
 
   constructor(private usuarioService: UsuarioService, private peliculaService: PeliculaService, 
     private router: Router, private modalService: NgbModal,
@@ -34,9 +38,10 @@ export class DashboardComponent implements OnInit {
     this.peliculaService.getPeliculas().subscribe(peliculas => this.peliculas = peliculas);
   }
 
-  openModal(pelicula : Pelicula) {
+  openModal(pelicula : Pelicula, accion : string) {
    const modalRef = this.modalService.open(PeliculaFormDialogComponent);
    modalRef.componentInstance.pelicula = pelicula;
+   modalRef.componentInstance.accion = accion;
   }
 
   setDarAltaPelicula(id) {

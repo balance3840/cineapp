@@ -20,8 +20,8 @@
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <a  (click)="setDarAltaPelicula(pelicula.id)" class="dropdown-item">Dar de alta</a>
                             <a (click)="setDarBajaPelicula(pelicula.id)" class="dropdown-item">Dar de baja</a>
-                            <a (click)="openModal(pelicula)" class="dropdown-item">Programar estreno</a>
-                            <a (click)="openModal()" class="dropdown-item">Prorrogar estreno</a>
+                            <a (click)="openModal(pelicula, accionProgramar)" class="dropdown-item">Programar estreno</a>
+                            <a (click)="openModal(pelicula, accionProrrogar)" class="dropdown-item">Prorrogar estreno</a>
                         </div>
                     </div>
                 </div>
