@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Comprar Entrada</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+
+    <p>
+    </p>
+    <form>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                    <label for="dateOfBirth">Hora</label>
+                    <input type="date" name="fechaInicio">
+            </div>
+            
+            <div class="input-group mb-3">
+                    <label for="dateOfBirth">Fecha Inicio </label>
+                    <input type="date" name="fechaFin">
+            </div>
+           
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')" >Guardar</button>
+</div>

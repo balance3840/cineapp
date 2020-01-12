@@ -7,6 +7,7 @@ import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicula-registro.component';
+import {ConsultarEntradasComponent} from './components/consultar-entradas/consultar-entradas.component';
 import { DetalleCineComponent } from './components/detalle-cine/detalle-cine.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {'path': 'login', component: LoginComponent},
   {'path': 'dashboard', component: DashboardComponent},
   {'path': 'pelicula-registro', component: PeliculaRegistroComponent},
+  {'path': 'consultarEntradas/:id', component: ConsultarEntradasComponent},
   {'path': 'cines/:id', component: DetalleCineComponent},
 ];
 
