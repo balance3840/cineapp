@@ -5,6 +5,7 @@ import { PeliculaService } from 'src/app/services/pelicula.service';
 import { Pelicula } from 'src/app/models/pelicula';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PeliculaFormDialogComponent } from '../pelicula-form-dialog/pelicula-form-dialog.component';
+import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,9 +15,13 @@ import { PeliculaFormDialogComponent } from '../pelicula-form-dialog/pelicula-fo
 export class DashboardComponent implements OnInit {
 
   peliculas: Pelicula[];
+  pelicula: Pelicula;
+  model: NgbDateStruct;
+  date: {year: number, month: number};
 
   constructor(private usuarioService: UsuarioService, private peliculaService: PeliculaService, 
-    private router: Router, private modalService: NgbModal) { }
+    private router: Router, private modalService: NgbModal,
+    private calendar: NgbCalendar) { }
 
   ngOnInit() {
     if(!this.usuarioService.isAuthenticated()) {
@@ -29,8 +34,36 @@ export class DashboardComponent implements OnInit {
     this.peliculaService.getPeliculas().subscribe(peliculas => this.peliculas = peliculas);
   }
 
-  openModal() {
-    this.modalService.open(PeliculaFormDialogComponent);
+  openModal(pelicula : Pelicula) {
+   const modalRef = this.modalService.open(PeliculaFormDialogComponent);
+   modalRef.componentInstance.pelicula = pelicula;
   }
+
+  setDarAltaPelicula(id) {
+    this.pelicula = new Pelicula();
+    this.pelicula.activa = true;
+
+    this.peliculaService.cambiarEstadoPelicula(id,this.pelicula).subscribe(pelicula => {
+      this.pelicula = pelicula;
+      window.location.reload();
+    });
+   
+  }
+
+  setDarBajaPelicula(id) {
+    this.pelicula = new Pelicula();
+    this.pelicula.activa = false;
+
+    this.peliculaService.cambiarEstadoPelicula(id,this.pelicula).subscribe(pelicula => {
+      this.pelicula = pelicula;
+      window.location.reload();
+    });
+
+  }
+
+  selectToday() {
+    this.model = this.calendar.getToday();
+  }
+
 
 }
