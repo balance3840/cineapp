@@ -21,4 +21,8 @@ export class CineService {
     return this.http.get<Cine[]>(baseUrl + 'cines', httpOptions).pipe();
   }
 
+  getCine(id: number): Observable<Cine> {
+    return this.http.get<Cine>(`${baseUrl}cines/${id}`, httpOptions).pipe();
+  }
+
 }

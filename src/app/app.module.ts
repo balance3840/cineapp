@@ -20,6 +20,7 @@ import { PeliculaFormDialogComponent } from './components/pelicula-form-dialog/p
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ConsultarEntradasComponent } from './components/consultar-entradas/consultar-entradas.component';
 import { CarritoFormDialogComponent } from './components/carrito-form-dialog/carrito-form-dialog.component';
+import { DetalleCineComponent } from './components/detalle-cine/detalle-cine.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CarritoFormDialogComponent } from './components/carrito-form-dialog/car
     PeliculaRegistroComponent,
     PeliculaFormDialogComponent,
     ConsultarEntradasComponent,
-    CarritoFormDialogComponent
+    CarritoFormDialogComponent,
+    DetalleCineComponent
   ],
   imports: [
     BrowserModule,

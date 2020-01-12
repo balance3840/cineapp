@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Pelicula } from "../../models/pelicula";
 import { PeliculaService } from "../../services/pelicula.service";
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pelicula-registro',
   templateUrl: './pelicula-registro.component.html',
@@ -79,8 +79,11 @@ export class PeliculaRegistroComponent implements OnInit {
   peliculaForm: FormGroup;
   pelicula: Pelicula;
   nuevaPelicula : Pelicula;
+  alertSuccess : boolean;
+
   constructor(private fb: FormBuilder,
-    private peliculaService: PeliculaService) { this.crearFormulario(); }
+    private peliculaService: PeliculaService,
+    private router: Router) { this.crearFormulario(); }
 
   ngOnInit() {
   }
@@ -117,8 +120,6 @@ export class PeliculaRegistroComponent implements OnInit {
     }
   }
   onSubmit() {
-    console.log(this.peliculaForm);
-
     this.nuevaPelicula = new Pelicula();
     this.nuevaPelicula.nombre = this.peliculaForm.value.nombre;
     this.nuevaPelicula.sipnosis = this.peliculaForm.value.sipnosis;
@@ -130,9 +131,9 @@ export class PeliculaRegistroComponent implements OnInit {
 
     this.peliculaService.setPeliculas(this.nuevaPelicula)
       .subscribe(pelicula =>{this.pelicula = pelicula;
-        console.log(pelicula);
-      } );
-/*
+        this.alertSuccess = true;
+      } ); 
+
       this.peliculaForm.reset({
         nombre: '',
         sipnosis : '',
@@ -141,8 +142,12 @@ export class PeliculaRegistroComponent implements OnInit {
         genero : '',
         activa: 1, 
         precio: 0
-      }); */
+      }); 
     
+  }
+
+  volverAtras(){
+    this.router.navigate(['/dashboard']);
   }
 
 

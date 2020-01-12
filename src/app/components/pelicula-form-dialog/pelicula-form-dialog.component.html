@@ -4,26 +4,43 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<div class="modal-body">
 
-    <p>
-        {{pelicula.nombre}}
-    </p>
-    <form>
+<form novalidate [formGroup]="peliculaForm" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+
+        <p>
+            {{pelicula.nombre}} {{accion}}
+        </p>
         <div class="form-group">
+
             <div class="input-group mb-3">
-                    <label for="dateOfBirth">Fecha Inicio </label>
-                    <input type="date" name="fechaInicio">
+                <label for="dateOfBirth">Fecha Inicio </label>
+                <div class="input-group">
+                    <input class="form-control" formControlName="fechaInicio"  placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    </div>
+                </div>
+
+                <span [hidden]="!(erroresForm.fechaInicio)">{{erroresForm.fechaInicio}}</span>
             </div>
-            
-            <div class="form-group">
-                    <label for="dateOfBirth">Fecha Inicio </label>
-                    <input type="date" name="fechaFin">
+
+            <div class="input-group mb-3">
+                <label for="dateOfBirth">Fecha Fin </label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp2" formControlName="fechaFin" ngbDatepicker #d2="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+                    </div>
+                </div>
+
+                <span [hidden]="!(erroresForm.fechaFin)">{{erroresForm.fechaFin}}</span>
             </div>
-           
+
         </div>
-    </form>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')" >Guardar</button>
-</div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="peliculaForm.invalid">Guardar</button>
+    </div>
+</form>

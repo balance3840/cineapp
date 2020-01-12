@@ -19,47 +19,52 @@
                             <div class="col-lg-4">
                                 <input type="text" formControlName="nombre" class="contact_input"
                                     placeholder="Nombre de la Pelicula" required="required">
-                                    <span [hidden]="!(erroresForm.nombre)">
-                                            {{erroresForm.nombre}}</span>
+                                <span [hidden]="!(erroresForm.nombre)">
+                                    {{erroresForm.nombre}}</span>
                             </div>
                             <div class="col-lg-4">
                                 <input type="text" formControlName="genero" class="contact_input"
                                     placeholder="Ingresa el Genero" required="required">
-                                    <span [hidden]="!(erroresForm.genero)">
-                                            {{erroresForm.genero}}</span>
+                                <span [hidden]="!(erroresForm.genero)">
+                                    {{erroresForm.genero}}</span>
                             </div>
                             <div class="col-lg-4">
                                 <input type="text" formControlName="img" class="contact_input"
                                     placeholder="Ingrese Ruta de Imagen" required="required">
-                                    <span [hidden]="!(erroresForm.img)">
-                                            {{erroresForm.img}}</span>
+                                <span [hidden]="!(erroresForm.img)">
+                                    {{erroresForm.img}}</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-4">
                                 <input type="text" formControlName="trailer" class="contact_input"
                                     placeholder="Ingrese la Ruta del Trailer" required="required">
-                                    <span [hidden]="!(erroresForm.trailer)">
-                                            {{erroresForm.trailer}}</span>
+                                <span [hidden]="!(erroresForm.trailer)">
+                                    {{erroresForm.trailer}}</span>
                             </div>
                             <div class="col-lg-4">
-                                    <input type="number" formControlName="precio" class="contact_input"
-                                        placeholder="Ingrese el precio" required="required">
-                                        <span [hidden]="!(erroresForm.precio)">
-                                                {{erroresForm.precio}}</span>
-                                </div>
+                                <input type="number" formControlName="precio" class="contact_input"
+                                    placeholder="Ingrese el precio" required="required">
+                                <span [hidden]="!(erroresForm.precio)">
+                                    {{erroresForm.precio}}</span>
+                            </div>
                             <div class="col-lg-4">
                                 <div class="checkbox-inline">
-                                    <label><input type="checkbox" class="custom-checkbox" formControlName="activa" value="">  Activa</label>
+                                    <label><input type="checkbox" class="custom-checkbox" formControlName="activa"
+                                            value=""> Activa</label>
                                 </div>
                             </div>
                         </div>
                         <textarea class="contact_textarea contact_input" formControlName="sipnosis"
                             placeholder="Ingrese la Sipnosis de la Pelicula" maxlength="500" required="required">
-                            
+
                         </textarea>
                         <span [hidden]="!(erroresForm.sipnosis)">{{erroresForm.sipnosis}}</span>
-                        <button type="submit" [disabled]="peliculaForm.invalid"  class="contact_button">Guardar</button>
+                        <button type="submit" [disabled]="peliculaForm.invalid" class="contact_button">Guardar</button>
+                        <button class="btnColorRed contact_button ml-5" (click)="volverAtras()">Volver Atras</button>
+                        <div class="row justify-content-center" >
+                             <ngb-alert  *ngIf="alertSuccess" class="animate-show animate-hide mt-3" [type]="'primary'" (close)="alertSuccess = false"><strong>La pelicula ha sido guardada satisfactoriamente.</strong></ngb-alert>
+                        </div>
                     </form>
                 </div>
             </div>
