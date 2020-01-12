@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Pelicula } from "../../models/pelicula";
 import { PeliculaService } from "../../services/pelicula.service";
@@ -41,7 +41,7 @@ export class PeliculaRegistroComponent implements OnInit {
 
       'minlength': 'Los sipnosis deben tener una longitud mínima de 15 caracteres.',
 
-      'maxlength': 'Los sipnosis no pueden exceder de 250 caracteres.'
+      'maxlength': 'Los sipnosis no pueden exceder de 500 caracteres.'
     },
 
     'trailer': {
@@ -73,7 +73,8 @@ export class PeliculaRegistroComponent implements OnInit {
   pelicula: Pelicula;
   nuevaPelicula : Pelicula;
   constructor(private fb: FormBuilder,
-    private peliculaService: PeliculaService) { this.crearFormulario(); }
+    private peliculaService: PeliculaService,
+    @Inject('baseURL') private BaseURL) { this.crearFormulario(); }
 
   ngOnInit() {
   }
@@ -81,7 +82,7 @@ export class PeliculaRegistroComponent implements OnInit {
   crearFormulario() {
     this.peliculaForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-      sipnosis: ['', [Validators.required, Validators.minLength(15), Validators.maxLength(250)]],
+      sipnosis: ['', [Validators.required, Validators.minLength(15), Validators.maxLength(500)]],
       trailer: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       img: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       genero: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
@@ -119,6 +120,17 @@ export class PeliculaRegistroComponent implements OnInit {
     this.nuevaPelicula.genero = this.peliculaForm.value.genero;
     this.nuevaPelicula.activa = this.peliculaForm.value.activa;
 
+    this.peliculaService.setPeliculas(this.nuevaPelicula)
+      .subscribe(pelicula => this.pelicula = pelicula);
+
+      this.peliculaForm.reset({
+        nombre: '',
+        sipnosis : '',
+        trailer: '',
+        img : '',
+        genero : '',
+        activa: 1
+      });
     
   }
 

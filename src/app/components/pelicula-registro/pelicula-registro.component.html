@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <textarea class="contact_textarea contact_input" formControlName="sipnosis"
-                            placeholder="Ingrese la Sipnosis de la Pelicula" required="required">
+                            placeholder="Ingrese la Sipnosis de la Pelicula" maxlength="500" required="required">
                             
                         </textarea>
                         <span [hidden]="!(erroresForm.sipnosis)">{{erroresForm.sipnosis}}</span>
