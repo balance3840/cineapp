@@ -19,9 +19,8 @@
                                     <div class="col-lg-4">
                                     </div>
                                     <div class="col-lg-4 ">
-                                        <div _ngcontent-chb-c4="" class="tag tag_house"><a _ngcontent-chb-c4=""
-                                                href="#">Comprar Entrada</a></div>
-
+                                        <div _ngcontent-chb-c4="" class="tag tag_house"><button (click)="openModal()">Comprar Entrada</button>
+                                            <!-- <a _ngcontent-chb-c4=""(click)="openModal(entrada)">Comprar Entrada</a></div> -->
                                     </div>
                                     <div class="col-lg-4">
                                     </div>
@@ -87,7 +86,6 @@
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                             <p>{{ critica.criticaPelicula }}</p>
-                            <p>{{ peliculas.idPelicula }}</p>
                             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source
                                     Title</cite></footer>
                         </blockquote>

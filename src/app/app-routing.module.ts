@@ -7,6 +7,7 @@ import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicula-registro.component';
+import {ConsultarEntradasComponent} from './components/consultar-entradas/consultar-entradas.component';
 
 const routes: Routes = [
   {'path': '', component: HomeComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
   {'path': 'pelicula', component: PeliculaComponent},
   {'path': 'login', component: LoginComponent},
   {'path': 'dashboard', component: DashboardComponent},
-  {'path': 'pelicula-registro', component: PeliculaRegistroComponent}
+  {'path': 'pelicula-registro', component: PeliculaRegistroComponent},
+  {'path': 'consultarEntradas/:id', component: ConsultarEntradasComponent}
+
 ];
 
 @NgModule({

@@ -18,6 +18,8 @@ import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicu
 import { ReactiveFormsModule } from '@angular/forms';
 import { PeliculaFormDialogComponent } from './components/pelicula-form-dialog/pelicula-form-dialog.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ConsultarEntradasComponent } from './components/consultar-entradas/consultar-entradas.component';
+import { CarritoFormDialogComponent } from './components/carrito-form-dialog/carrito-form-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     DashboardComponent,
     PeliculaRegistroComponent,
-    PeliculaFormDialogComponent
+    PeliculaFormDialogComponent,
+    ConsultarEntradasComponent,
+    CarritoFormDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   providers: [],
-  entryComponents: [PeliculaFormDialogComponent],
+  entryComponents: [PeliculaFormDialogComponent, CarritoFormDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,11 @@ import { CriticaService } from 'src/app/services/critica.service';
 import { Critica } from 'src/app/models/critica';
 import { PeliculaService } from 'src/app/services/pelicula.service';
 import { Pelicula } from 'src/app/models/pelicula';
-import { Params, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { NgbDateStruct, NgbModal, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { CarritoFormDialogComponent } from '../carrito-form-dialog/carrito-form-dialog.component';
+import { Entrada } from 'src/app/models/entrada';
+
 
 
 @Component({
@@ -31,12 +35,20 @@ export class DetallePeliculaComponent implements OnInit {
   nuevaCritica: Critica;
   peliculas: Pelicula;
   idPelicula: number;
+  idUsuario: number;
+  nombreUsuario: string;
+  model: NgbDateStruct;
+  entradas: Entrada[];
+  entrada: Entrada;
+  ;
 
   constructor(
-    private fb: FormBuilder,    
+    private fb: FormBuilder, 
+    private modalService: NgbModal,  
+    private calendar: NgbCalendar, 
     private route: ActivatedRoute,
     private criticaService: CriticaService, 
-    private peliculaService: PeliculaService) 
+    private peliculaService: PeliculaService)
     { this.crearFormulario(); }
 
   ngOnInit() {
@@ -47,7 +59,16 @@ export class DetallePeliculaComponent implements OnInit {
     });
     this.peliculaService.getPeliculasID(id).subscribe(peliculas => this.peliculas = peliculas);
     this.idPelicula = id;
+    var values =JSON.parse(localStorage.getItem('usuario'));
+    this.idUsuario = values.id;
+    console.log(this.idUsuario);
+    this.nombreUsuario = values.nombre;
+    console.log(this.nombreUsuario);
   }
+
+  openModal() {
+    const modalRef = this.modalService.open(CarritoFormDialogComponent);
+   }
 
   crearFormulario() {
     this.criticaForm = this.fb.group({
@@ -78,6 +99,11 @@ export class DetallePeliculaComponent implements OnInit {
     this.nuevaCritica = new Critica();
     this.nuevaCritica.criticaPelicula = this.criticaForm.value.criticaPelicula;
     this.nuevaCritica.idPelicula = this.idPelicula;
+    this.nuevaCritica.idUsuario = this.idUsuario;
+
+  
+
+    this.criticas.push(this.nuevaCritica);
 
     this.criticaService.setCriticas(this.nuevaCritica).subscribe(critica => this.critica = critica);
 

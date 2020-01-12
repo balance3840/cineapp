@@ -34,14 +34,14 @@
         </div>
     </div>
 
-    <div class="header_content d-flex flex-row align-items-center justify-content-start">
+    <div class="header_content d-flex flex-row align-items-center justify-content-start" >
         <div class="logo"><a href="/">Cine<span>Valencia</span></a></div>
         <nav class="main_nav">
             <ul class="d-flex flex-row align-items-start justify-content-start">
                 <li class="active"><a href="/">Inicio</a></li>
                 <li><a href="/pelicula">Peliculas</a></li>
                 <li><a href="/cines">Cines</a></li>
-                <li><a href="/carrito">Carrito</a></li>
+                <li *ngIf="idUsuario"><a href="/consultarEntradas/{{idUsuario}}">Ver entrada</a></li>
                 <li><a href="/contacto">Contacto</a></li>
             </ul>
         </nav>
