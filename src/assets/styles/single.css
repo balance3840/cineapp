@@ -606,6 +606,14 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
+#imgDetallePelicula{
+	height: 475px !important;
+    overflow: hidden !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
 .tab:hover .tab_content span,
 .tab [type=radio]:checked ~ .tab_content span
 {

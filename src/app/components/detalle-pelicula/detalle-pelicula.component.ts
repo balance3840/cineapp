@@ -5,8 +5,7 @@ import { Critica } from 'src/app/models/critica';
 import { PeliculaService } from 'src/app/services/pelicula.service';
 import { Pelicula } from 'src/app/models/pelicula';
 import { Params, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { element } from 'protractor';
+
 
 @Component({
   selector: 'app-detalle-pelicula',
