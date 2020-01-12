@@ -28,4 +28,9 @@ export class PeliculaService {
     return this.http.post<Pelicula>(baseUrl + 'peliculas/', pelicula, httpOptions)
     .pipe();
   }
+
+  cambiarEstadoPelicula(pelicula): Observable<Pelicula> {
+    return this.http.put<Pelicula>(baseUrl + 'peliculas/', pelicula, httpOptions)
+    .pipe();
+  }
 }
