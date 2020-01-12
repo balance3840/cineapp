@@ -52,6 +52,8 @@ export class PeliculaFormDialogComponent implements OnInit {
     this.fechaInicio = new NgbDate(Number(fechaInicioParts[0]) * 1, Number(fechaInicioParts[1]) * 1, Number(fechaInicioParts[2]) * 1);
     this.fechaFin = new NgbDate(Number(fechaFinalParts[0]) * 1, Number(fechaFinalParts[1]) * 1, Number(fechaFinalParts[2]) * 1); 
 
+    const fecha: Date = new Date(this.fechaInicio.year, this.fechaInicio.month, this.fechaInicio.day);
+
   }
 
   crearFormulario() {
