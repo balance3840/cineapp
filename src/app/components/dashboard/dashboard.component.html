@@ -6,17 +6,21 @@
         <div class="col-sm-6" *ngFor="let pelicula of peliculas">
             <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">{{ pelicula.nombre }} - {{ pelicula.genero }}</h5>
+                    <h5 class="card-title">{{ pelicula.nombre }} - {{ pelicula.genero }}
+                            <span class="badge badge-success ml-2" *ngIf="pelicula.activa">Activa</span>
+                            <span class="badge badge-danger ml-2" *ngIf="!pelicula.activa">Inactiva</span>
+                    </h5>
                     <p class="card-text">{{ pelicula.sipnosis }}</p>
                     <div class="btn-group" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Acciones
                         </button>
+                      
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a class="dropdown-item">Dar de alta</a>
-                            <a href="#" class="dropdown-item">Dar de baja</a>
-                            <a (click)="openModal()" class="dropdown-item">Programar estreno</a>
+                            <a  (click)="setDarAltaPelicula(pelicula.id)" class="dropdown-item">Dar de alta</a>
+                            <a (click)="setDarBajaPelicula(pelicula.id)" class="dropdown-item">Dar de baja</a>
+                            <a (click)="openModal(pelicula)" class="dropdown-item">Programar estreno</a>
                             <a (click)="openModal()" class="dropdown-item">Prorrogar estreno</a>
                         </div>
                     </div>

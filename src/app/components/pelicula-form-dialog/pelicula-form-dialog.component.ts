@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Pelicula } from 'src/app/models/pelicula';
 
 @Component({
   selector: 'app-pelicula-form-dialog',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeliculaFormDialogComponent implements OnInit {
 
+  @Input() pelicula: Pelicula;
   constructor() { }
 
   ngOnInit() {
+    console.log(this.pelicula);
   }
 
 }
