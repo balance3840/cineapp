@@ -18,7 +18,7 @@
                         <div class="listing_image_container"
                             [ngStyle]="{ 'background-image': 'url(' + elemento.img + ')'}" ></div>
                         <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
-                            <div class="tag tag_house"><a href="listings.html">{{elemento.genero}}</a></div>
+                            <div class="tag tag_house"><a href="#">{{elemento.genero}}</a></div>
                         </div>
                         <div class="tag_price listing_price">Agregar a Carrito</div>
                     </div>
@@ -28,7 +28,7 @@
                             <img src="/assets/images/icon_1.png" alt="">
                             <a [routerLink]="['/detallePelicula', elemento.id]">{{elemento.nombre}}</a>
                         </div>
-                        <div class="tag tag_sale"><a href="#" >Ver Trailer</a></div>
+                        <div class="tag tag_sale"><a [routerLink]="['/detallePelicula', elemento.id]" >Ver Trailer</a></div>
                     </div>
                 </div>
             </div>

@@ -16,6 +16,9 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicula-registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PeliculaFormDialogComponent } from './components/pelicula-form-dialog/pelicula-form-dialog.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,16 +31,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     DetallePeliculaComponent,
     LoginComponent,
     DashboardComponent,
-    PeliculaRegistroComponent
+    PeliculaRegistroComponent,
+    PeliculaFormDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
+  entryComponents: [PeliculaFormDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
