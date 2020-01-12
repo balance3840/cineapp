@@ -22,10 +22,10 @@ export class CriticaService {
     return this.http.get<Critica[]>(baseUrl + 'criticas', httpOptions).pipe();
   }
 
-  setProducto(critica): Observable<Critica> {
-    return this.http.post<Critica>(baseUrl + 'criticas/'+ critica, httpOptions)
+  setCriticas(critica): Observable<Critica> {
+    return this.http.post<Critica>(baseUrl + 'criticas/', critica, httpOptions)
     .pipe();
-    }
+  }
 
   
 }
