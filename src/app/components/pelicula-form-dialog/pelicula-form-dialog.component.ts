@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Pelicula } from 'src/app/models/pelicula';
 import { PeliculaService } from "../../services/pelicula.service";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal,NgbActiveModal, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-pelicula-form-dialog',
   templateUrl: './pelicula-form-dialog.component.html',
@@ -37,14 +37,21 @@ export class PeliculaFormDialogComponent implements OnInit {
   peliculaForm: FormGroup;
   peliculaObj: Pelicula;
   nuevaPelicula : Pelicula;
+  fechaInicio: NgbDate;
+  fechaFin: NgbDate;  
 
   constructor(private fb: FormBuilder, private peliculaService: PeliculaService,public modal: NgbActiveModal) {this.crearFormulario(); }
 
   ngOnInit() {
-    console.log(this.pelicula);
-    this.peliculaForm.controls['fechaInicio'].setValue(this.pelicula.fechaInicio);
+    let fechaInicioParts = this.pelicula.fechaInicio.split("T");
+    fechaInicioParts = fechaInicioParts[0].split("-");
 
-    
+    let fechaFinalParts = this.pelicula.fechaFin.split("T");
+    fechaFinalParts = fechaFinalParts[0].split("-");
+
+    this.fechaInicio = new NgbDate(Number(fechaInicioParts[0]) * 1, Number(fechaInicioParts[1]) * 1, Number(fechaInicioParts[2]) * 1);
+    this.fechaFin = new NgbDate(Number(fechaFinalParts[0]) * 1, Number(fechaFinalParts[1]) * 1, Number(fechaFinalParts[2]) * 1); 
+
   }
 
   crearFormulario() {
