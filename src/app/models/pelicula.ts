@@ -8,4 +8,5 @@ export class Pelicula {
     activa: boolean;
     fechaInicio: string;
     fechaFin: string;
+    precio:number;
 }

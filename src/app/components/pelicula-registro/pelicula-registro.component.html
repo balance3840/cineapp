@@ -43,6 +43,12 @@
                                             {{erroresForm.trailer}}</span>
                             </div>
                             <div class="col-lg-4">
+                                    <input type="number" formControlName="precio" class="contact_input"
+                                        placeholder="Ingrese el precio" required="required">
+                                        <span [hidden]="!(erroresForm.precio)">
+                                                {{erroresForm.precio}}</span>
+                                </div>
+                            <div class="col-lg-4">
                                 <div class="checkbox-inline">
                                     <label><input type="checkbox" class="custom-checkbox" formControlName="activa" value="">  Activa</label>
                                 </div>

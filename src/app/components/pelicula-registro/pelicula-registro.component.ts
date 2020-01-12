@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Pelicula } from "../../models/pelicula";
 import { PeliculaService } from "../../services/pelicula.service";
@@ -20,7 +20,9 @@ export class PeliculaRegistroComponent implements OnInit {
 
     'img': '',
 
-    'genero': ''
+    'genero': '',
+
+    'precio': ''
 
   };
 
@@ -64,6 +66,11 @@ export class PeliculaRegistroComponent implements OnInit {
       'minlength': 'El genero debe tener una longitud mínima de 2 caracteres.',
 
       'maxlength': 'El genero no puede exceder de 25 caracteres.'
+    },
+    'precio': {
+      'required': 'El precio es obligatorio.',
+
+      'pattern': 'Solo se permiten numeros'
     }
 
   };
@@ -73,8 +80,7 @@ export class PeliculaRegistroComponent implements OnInit {
   pelicula: Pelicula;
   nuevaPelicula : Pelicula;
   constructor(private fb: FormBuilder,
-    private peliculaService: PeliculaService,
-    @Inject('baseURL') private BaseURL) { this.crearFormulario(); }
+    private peliculaService: PeliculaService) { this.crearFormulario(); }
 
   ngOnInit() {
   }
@@ -86,6 +92,7 @@ export class PeliculaRegistroComponent implements OnInit {
       trailer: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       img: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       genero: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
+      precio:[0, [Validators.required, Validators.pattern("^[0-9]*$")]],
       activa: 1
     });
 
@@ -119,18 +126,22 @@ export class PeliculaRegistroComponent implements OnInit {
     this.nuevaPelicula.img = this.peliculaForm.value.img;
     this.nuevaPelicula.genero = this.peliculaForm.value.genero;
     this.nuevaPelicula.activa = this.peliculaForm.value.activa;
+    this.nuevaPelicula.precio = this.peliculaForm.value.precio;
 
     this.peliculaService.setPeliculas(this.nuevaPelicula)
-      .subscribe(pelicula => this.pelicula = pelicula);
-
+      .subscribe(pelicula =>{this.pelicula = pelicula;
+        console.log(pelicula);
+      } );
+/*
       this.peliculaForm.reset({
         nombre: '',
         sipnosis : '',
         trailer: '',
         img : '',
         genero : '',
-        activa: 1
-      });
+        activa: 1, 
+        precio: 0
+      }); */
     
   }
 
