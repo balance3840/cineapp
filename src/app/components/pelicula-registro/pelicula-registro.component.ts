@@ -88,7 +88,7 @@ export class PeliculaRegistroComponent implements OnInit {
       activa: 1
     });
 
-     this.peliculaForm.valueChanges.subscribe(datos => this.onCambioValor(datos));
+    this.peliculaForm.valueChanges.subscribe(datos => this.onCambioValor(datos));
     this.onCambioValor();
 
   }
