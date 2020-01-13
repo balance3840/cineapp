@@ -3,6 +3,7 @@ import { Pelicula } from 'src/app/models/pelicula';
 import { PeliculaService } from "../../services/pelicula.service";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbModal,NgbActiveModal, NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { stringify } from 'querystring';
 @Component({
   selector: 'app-pelicula-form-dialog',
   templateUrl: './pelicula-form-dialog.component.html',
@@ -51,9 +52,6 @@ export class PeliculaFormDialogComponent implements OnInit {
 
     this.fechaInicio = new NgbDate(Number(fechaInicioParts[0]) * 1, Number(fechaInicioParts[1]) * 1, Number(fechaInicioParts[2]) * 1);
     this.fechaFin = new NgbDate(Number(fechaFinalParts[0]) * 1, Number(fechaFinalParts[1]) * 1, Number(fechaFinalParts[2]) * 1); 
-
-    const fecha: Date = new Date(this.fechaInicio.year, this.fechaInicio.month, this.fechaInicio.day);
-
   }
 
   crearFormulario() {
@@ -73,7 +71,6 @@ export class PeliculaFormDialogComponent implements OnInit {
     if (!this.peliculaForm) { return; }
     const form = this.peliculaForm;
     for (const field in this.erroresForm) {
-      // Se borrarán los mensajes de error previos
       this.erroresForm[field] = '';
       const control = form.get(field);
       if (control && control.dirty && !control.valid) {
@@ -85,23 +82,43 @@ export class PeliculaFormDialogComponent implements OnInit {
     }
   }
 
+  prorrogarEstreno(){
+    const fechaInicio: Date = new Date(this.fechaInicio.year, this.fechaInicio.month - 1, this.fechaInicio.day);
+    const fechaFin : Date = new Date(this.fechaFin.year, this.fechaFin.month - 1, this.fechaFin.day);
+
+    const fecha_Fin : string = this.formatDate(fechaFin);
+    const fecha_Inicio : string = this.formatDate(fechaInicio);
+    this.nuevaPelicula = new Pelicula();
+    this.nuevaPelicula.fechaInicio = fecha_Inicio;
+    this.nuevaPelicula.fechaFin = fecha_Fin;
+    this.peliculaService.putPorragarEstreno(this.pelicula.id,this.nuevaPelicula)
+      .subscribe(pelicula =>{this.pelicula = pelicula;
+        this.modal.close('Save click'); 
+      } ); 
+  }
+
+   formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
   onSubmit(){
-    // this.modal.close('Save click')
-    console.log(this.peliculaForm);
     if(this.accion === "prorrogar"){
-        console.log('prorrogar');
+        this.prorrogarEstreno();
     }
     else {
       console.log('programar');
     }
   }
-
-  parseDate(dateString: string): Date {
-    if (dateString) {
-        return new Date(dateString);
-    }
-    return null;
-}
 
 
 }
