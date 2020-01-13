@@ -68,6 +68,7 @@ export class DetallePeliculaComponent implements OnInit {
 
   openModal() {
     const modalRef = this.modalService.open(CarritoFormDialogComponent);
+    modalRef.componentInstance.pelicula = this.peliculas;
    }
 
   crearFormulario() {
@@ -100,13 +101,8 @@ export class DetallePeliculaComponent implements OnInit {
     this.nuevaCritica.criticaPelicula = this.criticaForm.value.criticaPelicula;
     this.nuevaCritica.idPelicula = this.idPelicula;
     this.nuevaCritica.idUsuario = this.idUsuario;
-
-  
-
     this.criticas.push(this.nuevaCritica);
-
     this.criticaService.setCriticas(this.nuevaCritica).subscribe(critica => this.critica = critica);
-
     this.criticaForm.reset({
       criticaPelicula: ''
     });

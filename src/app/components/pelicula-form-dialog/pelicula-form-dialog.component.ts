@@ -41,7 +41,7 @@ export class PeliculaFormDialogComponent implements OnInit {
   fechaInicio: NgbDate;
   fechaFin: NgbDate;  
 
-  constructor(private fb: FormBuilder, private peliculaService: PeliculaService,public modal: NgbActiveModal) {this.crearFormulario(); }
+  constructor(private fb: FormBuilder, private peliculaService: PeliculaService, public modal: NgbActiveModal) {this.crearFormulario(); }
 
   ngOnInit() {
     let fechaInicioParts = this.pelicula.fechaInicio.split("T");

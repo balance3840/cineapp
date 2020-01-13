@@ -6,22 +6,27 @@
 </div>
 <div class="modal-body">
 
-    <p>
-    </p>
-    <form>
-        <div class="form-group">
-            <div class="input-group mb-3">
-                    <label for="dateOfBirth">Hora</label>
-                    <input type="date" name="fechaInicio">
+    <div class="row contact_form_row">
+        <div class="col">
+            <div class="contact_form_container">
+                <form novalidate [formGroup]="entradaForm" class="contact_form text-center" id="contact_form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-lg-4">
+                        </div>
+                        <div class="col-lg-4">
+                            <h3>Comprar Entrada</h3>
+                        </div>
+                        <div class="col-lg-4">
+                        </div>
+                    </div>
+                    <div>
+                        <input formControlName="hora" class="contact_textarea contact_input" placeholder="Message" required="required">
+                    </div>
+                    <button type="submit" [disabled]="entradaForm.invalid"  class="contact_button">enviar critica</button>
+                </form>
             </div>
-            
-            <div class="input-group mb-3">
-                    <label for="dateOfBirth">Fecha Inicio </label>
-                    <input type="date" name="fechaFin">
-            </div>
-           
         </div>
-    </form>
+    </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-primary" (click)="modal.close('Save click')" >Guardar</button>
