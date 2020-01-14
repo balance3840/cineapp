@@ -38,4 +38,10 @@ export class PeliculaService {
     return this.http.put<Pelicula>(baseUrl + 'peliculas/prorrogarEstreno/' + id, pelicula, httpOptions)
     .pipe();
   }
+
+  programarEstreno(id,pelicula): Observable<Pelicula> {
+    return this.http.put<Pelicula>(baseUrl + 'peliculas/premiere/' + id, pelicula, httpOptions)
+    .pipe();
+  }
+
 }

@@ -44,14 +44,16 @@ export class PeliculaFormDialogComponent implements OnInit {
   constructor(private fb: FormBuilder, private peliculaService: PeliculaService, public modal: NgbActiveModal) {this.crearFormulario(); }
 
   ngOnInit() {
-    let fechaInicioParts = this.pelicula.fechaInicio.split("T");
-    fechaInicioParts = fechaInicioParts[0].split("-");
-
-    let fechaFinalParts = this.pelicula.fechaFin.split("T");
-    fechaFinalParts = fechaFinalParts[0].split("-");
-
-    this.fechaInicio = new NgbDate(Number(fechaInicioParts[0]) * 1, Number(fechaInicioParts[1]) * 1, Number(fechaInicioParts[2]) * 1);
-    this.fechaFin = new NgbDate(Number(fechaFinalParts[0]) * 1, Number(fechaFinalParts[1]) * 1, Number(fechaFinalParts[2]) * 1); 
+    if(this.pelicula.fechaInicio && this.pelicula.fechaFin) {
+      let fechaInicioParts = this.pelicula.fechaInicio.split("T");
+      fechaInicioParts = fechaInicioParts[0].split("-");
+  
+      let fechaFinalParts = this.pelicula.fechaFin.split("T");
+      fechaFinalParts = fechaFinalParts[0].split("-");
+  
+      this.fechaInicio = new NgbDate(Number(fechaInicioParts[0]) * 1, Number(fechaInicioParts[1]) * 1, Number(fechaInicioParts[2]) * 1);
+      this.fechaFin = new NgbDate(Number(fechaFinalParts[0]) * 1, Number(fechaFinalParts[1]) * 1, Number(fechaFinalParts[2]) * 1); 
+    }
   }
 
   crearFormulario() {
@@ -97,6 +99,21 @@ export class PeliculaFormDialogComponent implements OnInit {
       } ); 
   }
 
+  programarEstreno(){
+    const fechaInicio: Date = new Date(this.fechaInicio.year, this.fechaInicio.month - 1, this.fechaInicio.day);
+    const fechaFin : Date = new Date(this.fechaFin.year, this.fechaFin.month - 1, this.fechaFin.day);
+
+    const fecha_Fin : string = this.formatDate(fechaFin);
+    const fecha_Inicio : string = this.formatDate(fechaInicio);
+    this.nuevaPelicula = new Pelicula();
+    this.nuevaPelicula.fechaInicio = fecha_Inicio;
+    this.nuevaPelicula.fechaFin = fecha_Fin;
+    this.peliculaService.programarEstreno(this.pelicula.id,this.nuevaPelicula)
+      .subscribe(pelicula =>{this.pelicula = pelicula;
+        this.modal.close('Save click'); 
+      } ); 
+  }
+
    formatDate(date) {
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),
@@ -116,7 +133,7 @@ export class PeliculaFormDialogComponent implements OnInit {
         this.prorrogarEstreno();
     }
     else {
-      console.log('programar');
+      this.programarEstreno();
     }
   }
 

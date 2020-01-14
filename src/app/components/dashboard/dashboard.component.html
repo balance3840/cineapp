@@ -18,10 +18,10 @@
                         </button>
                       
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a  (click)="setDarAltaPelicula(pelicula.id)" class="dropdown-item">Dar de alta</a>
-                            <a (click)="setDarBajaPelicula(pelicula.id)" class="dropdown-item">Dar de baja</a>
-                            <a (click)="openModal(pelicula, accionProgramar)" class="dropdown-item">Programar estreno</a>
-                            <a (click)="openModal(pelicula, accionProrrogar)" class="dropdown-item">Prorrogar estreno</a>
+                            <button (click)="setDarAltaPelicula(pelicula.id)" class="dropdown-item btn">Dar de alta</button>
+                            <button (click)="setDarBajaPelicula(pelicula.id)" class="dropdown-item btn">Dar de baja</button>
+                            <button (click)="openModal(pelicula, accionProgramar)" class="dropdown-item btn">Programar estreno</button>
+                            <button (click)="openModal(pelicula, accionProrrogar)" class="dropdown-item btn">Prorrogar estreno</button>
                         </div>
                     </div>
                 </div>
