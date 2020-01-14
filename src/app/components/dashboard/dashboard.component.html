@@ -18,8 +18,8 @@
                         </button>
                       
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <button (click)="setDarAltaPelicula(pelicula.id)" class="dropdown-item btn">Dar de alta</button>
-                            <button (click)="setDarBajaPelicula(pelicula.id)" class="dropdown-item btn">Dar de baja</button>
+                            <button (click)="setDarAltaPelicula(pelicula.id)" class="dropdown-item btn" *ngIf="!pelicula.activa">Dar de alta</button>
+                            <button (click)="setDarBajaPelicula(pelicula.id)" class="dropdown-item btn" *ngIf="pelicula.activa">Dar de baja</button>
                             <button (click)="openModal(pelicula, accionProgramar)" class="dropdown-item btn">Programar estreno</button>
                             <button (click)="openModal(pelicula, accionProrrogar)" class="dropdown-item btn">Prorrogar estreno</button>
                         </div>

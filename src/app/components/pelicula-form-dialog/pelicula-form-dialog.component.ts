@@ -39,7 +39,8 @@ export class PeliculaFormDialogComponent implements OnInit {
   peliculaObj: Pelicula;
   nuevaPelicula : Pelicula;
   fechaInicio: NgbDate;
-  fechaFin: NgbDate;  
+  fechaFin: NgbDate;
+  saving: Boolean = false;  
 
   constructor(private fb: FormBuilder, private peliculaService: PeliculaService, public modal: NgbActiveModal) {this.crearFormulario(); }
 
@@ -85,6 +86,7 @@ export class PeliculaFormDialogComponent implements OnInit {
   }
 
   prorrogarEstreno(){
+    this.saving = true;
     const fechaInicio: Date = new Date(this.fechaInicio.year, this.fechaInicio.month - 1, this.fechaInicio.day);
     const fechaFin : Date = new Date(this.fechaFin.year, this.fechaFin.month - 1, this.fechaFin.day);
 
@@ -95,11 +97,13 @@ export class PeliculaFormDialogComponent implements OnInit {
     this.nuevaPelicula.fechaFin = fecha_Fin;
     this.peliculaService.putPorragarEstreno(this.pelicula.id,this.nuevaPelicula)
       .subscribe(pelicula =>{this.pelicula = pelicula;
-        this.modal.close('Save click'); 
+        this.modal.close('Save click');
+        this.saving = false; 
       } ); 
   }
 
   programarEstreno(){
+    this.saving = true;
     const fechaInicio: Date = new Date(this.fechaInicio.year, this.fechaInicio.month - 1, this.fechaInicio.day);
     const fechaFin : Date = new Date(this.fechaFin.year, this.fechaFin.month - 1, this.fechaFin.day);
 
@@ -111,6 +115,7 @@ export class PeliculaFormDialogComponent implements OnInit {
     this.peliculaService.programarEstreno(this.pelicula.id,this.nuevaPelicula)
       .subscribe(pelicula =>{this.pelicula = pelicula;
         this.modal.close('Save click'); 
+        this.saving = false;
       } ); 
   }
 

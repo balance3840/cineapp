@@ -44,6 +44,10 @@
 
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" [disabled]="peliculaForm.invalid">Guardar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="peliculaForm.invalid" *ngIf="!saving">Guardar</button>
+        <button class="btn btn-primary" type="button" disabled *ngIf="saving">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Guardando...
+        </button>
     </div>
 </form>
