@@ -1,11 +1,14 @@
-<div class="row featured_row">
-<div class="card col-sm-4" style="width: 18rem;" *ngFor="let entrada of entradas">
-    <div class="card-body">
-        <h5 class="card-title">entradas</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{entrada.hora}}</h6>
-        <p class="card-text">{{entrada.idPelicula}}</p>
-        <a href="#" class="card-link">{{entrada.idUsuario}}</a>
-        <a href="#" class="card-link">{{entrada.caterleraId}}</a>
+<div class="container">
+    <app-loader *ngIf="!entradas"></app-loader>
+    <div class="row featured_row">
+        <div class="card col-auto mr-3 mb-3" style="width: 18rem;" *ngFor="let entrada of entradas">
+            <div class="card-body">
+                <h5 class="card-title">entradas</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{entrada.hora}}</h6>
+                <p class="card-text">{{entrada.idPelicula}}</p>
+                <a href="#" class="card-link">{{entrada.idUsuario}}</a>
+                <a href="#" class="card-link">{{entrada.caterleraId}}</a>
+            </div>
+        </div>
     </div>
-</div>
 </div>

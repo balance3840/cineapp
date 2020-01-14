@@ -2,6 +2,8 @@
 
     <h2 class="mb-3">Listado de cines</h2>
 
+    <app-loader *ngIf="!cines"></app-loader>
+
     <div class="row">
         <div class="col-sm-6" *ngFor="let cine of cines">
             <div class="card">
