@@ -20,14 +20,14 @@
 
             <div class="log_reg d-flex flex-row align-items-center justify-content-start" *ngIf="!isAuthenticated">
                 <ul class="d-flex flex-row align-items-start justify-content-start">
-                    <li><a href="/login">Acceso</a></li>
-                    <li><a href="/registro">Registro</a></li>
+                    <li><a routerLink="/login">Acceso</a></li>
+                    <li><a routerLink="/registro">Registro</a></li>
                 </ul>
             </div>
 
             <div class="log_reg d-flex flex-row align-items-center justify-content-start" *ngIf="isAuthenticated">
                 <ul class="d-flex flex-row align-items-start justify-content-start">
-                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a routerLink="/dashboard">Dashboard</a></li>
                 </ul>
             </div>
 
@@ -35,14 +35,14 @@
     </div>
 
     <div class="header_content d-flex flex-row align-items-center justify-content-start" >
-        <div class="logo"><a href="/">Cine<span>Valencia</span></a></div>
+        <div class="logo"><a routerLink="/">Cine<span>Valencia</span></a></div>
         <nav class="main_nav">
             <ul class="d-flex flex-row align-items-start justify-content-start">
-                <li class="active"><a href="/">Inicio</a></li>
-                <li><a href="/pelicula">Peliculas</a></li>
-                <li><a href="/cines">Cines</a></li>
-                <li *ngIf="idUsuario"><a href="/consultarEntradas/{{idUsuario}}">Ver entrada</a></li>
-                <li><a href="/contacto">Contacto</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Inicio</a></li>
+                <li routerLinkActive="active"><a routerLink="/pelicula">Peliculas</a></li>
+                <li routerLinkActive="active"><a routerLink="/cines">Cines</a></li>
+                <li routerLinkActive="active" *ngIf="idUsuario"><a routerLink="/consultarEntradas/{{idUsuario}}">Ver entrada</a></li>
+                <li routerLinkActive="active"><a routerLink="/contacto">Contacto</a></li>
             </ul>
         </nav>
 
