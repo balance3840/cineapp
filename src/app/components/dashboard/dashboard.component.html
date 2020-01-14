@@ -2,6 +2,8 @@
 
     <h2 class="mb-3">Dashboard</h2>
 
+    <app-loader *ngIf="!peliculas"></app-loader>
+
     <div class="row">
         <div class="col-sm-6" *ngFor="let pelicula of peliculas">
             <div class="card mb-3">

@@ -2,13 +2,15 @@
 
     <h2 class="mb-3">Listado de cines</h2>
 
+    <app-loader *ngIf="!cines"></app-loader>
+
     <div class="row">
         <div class="col-sm-6" *ngFor="let cine of cines">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ cine.nombre }}</h5>
                     <p class="card-text">{{ cine.direccion }}</p>
-                    <a href="/cines/{{ cine.id }}" class="btn btn-primary">Ver cine</a>
+                    <a routerLink="/cines/{{ cine.id }}" class="btn btn-primary">Ver cine</a>
                 </div>
             </div>
         </div>

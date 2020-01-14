@@ -21,6 +21,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ConsultarEntradasComponent } from './components/consultar-entradas/consultar-entradas.component';
 import { CarritoFormDialogComponent } from './components/carrito-form-dialog/carrito-form-dialog.component';
 import { DetalleCineComponent } from './components/detalle-cine/detalle-cine.component';
+import { NgSpinnerModule } from 'ng-bootstrap-spinner';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { DetalleCineComponent } from './components/detalle-cine/detalle-cine.com
     PeliculaFormDialogComponent,
     ConsultarEntradasComponent,
     CarritoFormDialogComponent,
-    DetalleCineComponent
+    DetalleCineComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { DetalleCineComponent } from './components/detalle-cine/detalle-cine.com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    NgSpinnerModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   entryComponents: [PeliculaFormDialogComponent, CarritoFormDialogComponent],
