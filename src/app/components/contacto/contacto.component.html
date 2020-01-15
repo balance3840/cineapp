@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <textarea name="message" formControlName="message" class="contact_textarea contact_input" placeholder="Escribe tu mensaje..." required="required"></textarea>
-                    <button type="submit" (click)="clearForm()" [disabled]="!myForm.valid" id="contactButton" class="contact_button mb-4 {{ !myForm.valid && 'btn-secondary' }}" href="#contactoModal" data-toggle="modal">Enviar mensaje</button>
+                    <button type="submit" [disabled]="!myForm.valid" id="contactButton" class="contact_button mb-4 {{ !myForm.valid && 'btn-secondary' }}" href="#contactoModal" data-toggle="modal">Enviar mensaje</button>
                 </form>
             </div>
         </div>
