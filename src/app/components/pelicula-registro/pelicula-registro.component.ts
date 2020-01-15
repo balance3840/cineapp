@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Pelicula } from "../../models/pelicula";
 import { PeliculaService } from "../../services/pelicula.service";
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-pelicula-registro',
   templateUrl: './pelicula-registro.component.html',
@@ -83,9 +84,13 @@ export class PeliculaRegistroComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private peliculaService: PeliculaService,
-    private router: Router) { this.crearFormulario(); }
+    private router: Router,
+    private usuarioService: UsuarioService) { this.crearFormulario(); }
 
   ngOnInit() {
+    if(!this.usuarioService.isAuthenticated()) {
+      this.router.navigate(['login']);
+    }
   }
 
   crearFormulario() {

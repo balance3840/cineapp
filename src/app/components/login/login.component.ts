@@ -78,11 +78,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.usuarioService.login(this.usuario).subscribe(response => {
-      if(response.authenticated) {
+      if(response.authenticated === "true") {
         localStorage.setItem("usuario", JSON.stringify(response));
         this.usuarioService.isAuthenticatedObservable();
         this.router.navigate(['dashboard']);
-      };
+      } else {
+        alert("Credenciales incorrectas");
+      }
     });
   }
 
