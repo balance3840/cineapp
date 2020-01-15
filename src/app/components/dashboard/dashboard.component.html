@@ -1,16 +1,19 @@
 <div class="container mt-5 mb-5">
 
     <h2 class="mb-3">Dashboard</h2>
-
+ 
     <app-loader *ngIf="!peliculas"></app-loader>
-
+    <div class="row justify-content-end">
+        <button  routerLink="/pelicula-registro" class="contact_button mb-3">Registrar
+            Pelicula</button>
+    </div>
     <div class="row">
         <div class="col-sm-6" *ngFor="let pelicula of peliculas">
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ pelicula.nombre }} - {{ pelicula.genero }}
-                            <span class="badge badge-success ml-2" *ngIf="pelicula.activa">Activa</span>
-                            <span class="badge badge-danger ml-2" *ngIf="!pelicula.activa">Inactiva</span>
+                        <span class="badge badge-success ml-2" *ngIf="pelicula.activa">Activa</span>
+                        <span class="badge badge-danger ml-2" *ngIf="!pelicula.activa">Inactiva</span>
                     </h5>
                     <p class="card-text">{{ pelicula.sipnosis }}</p>
                     <div class="btn-group" role="group">
@@ -18,12 +21,16 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Acciones
                         </button>
-                      
+
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <button (click)="setDarAltaPelicula(pelicula.id)" class="dropdown-item btn" *ngIf="!pelicula.activa">Dar de alta</button>
-                            <button (click)="setDarBajaPelicula(pelicula.id)" class="dropdown-item btn" *ngIf="pelicula.activa">Dar de baja</button>
-                            <button (click)="openModal(pelicula, accionProgramar)" class="dropdown-item btn">Programar estreno</button>
-                            <button (click)="openModal(pelicula, accionProrrogar)" class="dropdown-item btn">Prorrogar estreno</button>
+                            <button (click)="setDarAltaPelicula(pelicula.id)" class="dropdown-item btn"
+                                *ngIf="!pelicula.activa">Dar de alta</button>
+                            <button (click)="setDarBajaPelicula(pelicula.id)" class="dropdown-item btn"
+                                *ngIf="pelicula.activa">Dar de baja</button>
+                            <button (click)="openModal(pelicula, accionProgramar)" class="dropdown-item btn">Programar
+                                estreno</button>
+                            <button (click)="openModal(pelicula, accionProrrogar)" class="dropdown-item btn">Prorrogar
+                                estreno</button>
                         </div>
                     </div>
                 </div>
