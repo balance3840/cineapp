@@ -3,31 +3,41 @@
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
     </button>
-</div>
-<div class="modal-body">
-
+ </div>
+ <div class="modal-body">
+  
     <div class="row contact_form_row">
         <div class="col">
             <div class="contact_form_container">
-                <form novalidate [formGroup]="entradaForm" class="contact_form text-center" id="contact_form" (ngSubmit)="onSubmit()">
+                <form novalidate name="entradaForm" class="contact_form text-center" id="contact_form"
+                    (ngSubmit)="onSubmit()">
                     <div class="row">
                         <div class="col-lg-4">
                         </div>
                         <div class="col-lg-4">
-                            <h3>Comprar Entrada</h3>
+                            <h3>{{pelicula.nombre}}</h3>
                         </div>
                         <div class="col-lg-4">
                         </div>
                     </div>
-                    <div>
-                        <input formControlName="hora" class="contact_textarea contact_input" placeholder="Message" required="required">
+                    <div class="row">
+                        <div id="counter" class="col">
+                        <label for="exampleFormControlSelect1">Example select</label>
+                        <select class="form-control" name="numeroEntradas" [(ngModel)]="numeroEntradas" id="exampleFormControlSelect1" >
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        </div>
                     </div>
-                    <button type="submit" [disabled]="entradaForm.invalid"  class="contact_button">enviar critica</button>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Comprar Entrada</button>
+                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')" >Guardar</button>
-</div>
+ </div>
+ 

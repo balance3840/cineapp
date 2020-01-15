@@ -20,7 +20,8 @@
                         <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
                             <div class="tag tag_house"><a href="#">{{elemento.genero}}</a></div>
                         </div>
-                        <div class="tag_price listing_price">Agregar a Carrito</div>
+                        <!-- <div class="tag_price listing_price" >Agregar a Carrito</div> -->
+                        <button class="btn btn-success btn-block" (click)="openModal(elemento)">Comprar Entrada</button>
                     </div>
                     <div class="listing_content">
                         <div

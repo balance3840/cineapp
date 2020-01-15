@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PeliculaService } from 'src/app/services/pelicula.service';
 import { Pelicula } from 'src/app/models/pelicula';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgbDateStruct, NgbModal, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { CarritoFormDialogComponent } from '../carrito-form-dialog/carrito-form-dialog.component';
 
 @Component({
   selector: 'app-pelicula',
@@ -12,7 +14,7 @@ export class PeliculaComponent implements OnInit {
 
   vPeliculas: Pelicula[] = [];
   activeRoute: String;
-  constructor(private peliculaService: PeliculaService, private router: Router) {
+  constructor(private peliculaService: PeliculaService, private modalService: NgbModal,  private router: Router) {
     this.activeRoute = this.router.url;
   }
 
@@ -34,4 +36,9 @@ export class PeliculaComponent implements OnInit {
     });
 
   }
+
+  openModal(pelicula: Pelicula) {
+    const modalRef = this.modalService.open(CarritoFormDialogComponent);
+    modalRef.componentInstance.pelicula = pelicula;
+   }
 }

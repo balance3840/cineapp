@@ -1,0 +1,94 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <div class="section_title_container text-center">
+                <div class="section_subtitle">the best deals</div>
+                <div class="section_title"><h1>Get in touch</h1></div>
+            </div>
+        </div>
+    </div>
+    <div class="row contact_row">
+
+        <!-- Contact - About -->
+        <div class="col-lg-4 contact_col">
+            <div class="logo"><a href="#">Cine<span>Valencia</span></a></div>
+            <div class="contact_text">
+                <p>CineValencia es una cadena de salas de cine en Valencia. Es de la única cadena importante en Valencia luego de la quiebra de Cines Lys.</p>
+            </div>
+        </div>
+
+        <!-- Contact - Info -->
+        <div class="col-lg-4 contact_col">
+            <div class="contact_info">
+                <ul>
+                    <li class="d-flex flex-row align-items-center justify-content-start">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <div><img src="/assets/images/placeholder_2.svg" alt=""></div>
+                        </div>
+                        <span>Avenidad de la Universidad, no 56, Valencia</span>
+                    </li>
+                    <li class="d-flex flex-row align-items-center justify-content-start">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <div><img src="/assets/images/phone-call-2.svg" alt=""></div>
+                        </div>
+                        <span>+34 605 62 53 21</span>
+                    </li>
+                    <li class="d-flex flex-row align-items-center justify-content-start">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <div><img src="/assets/images/envelope-2.svg" alt=""></div>
+                        </div>
+                        <span>contacto@cinevalencia.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact - Image -->
+        <div class="col-lg-4 contact_col">
+            <div class="contact_image d-flex flex-column align-items-center justify-content-center">
+                <img src="https://i.imgur.com/dlmETSF.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+    <div class="row contact_form_row">
+        <div class="col">
+            <div class="contact_form_container">
+                <form [formGroup]="myForm" class="contact_form text-center" id="contact_form">
+                    {{ myForm.name }}
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <input type="text" formControlName="name" class="contact_input" placeholder="Nombre" required>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="email" formControlName="email" class="contact_input" placeholder="E-mail" required>
+                        </div>
+                    </div>
+                    <textarea name="message" formControlName="message" class="contact_textarea contact_input" placeholder="Escribe tu mensaje..." required="required"></textarea>
+                    <button type="submit" [disabled]="!myForm.valid" id="contactButton" class="contact_button mb-4 {{ !myForm.valid && 'btn-secondary' }}" href="#contactoModal" data-toggle="modal">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="contactoModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                 </div>
+                
+                <div class="modal-body">
+                   
+                    <div class="thank-you-pop">
+                        <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+                        <h1>Gracias!</h1>
+                        <p>Su mensaje ha sido recibido y estaremos contactandolo pronto</p>
+                     </div>
+                     
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

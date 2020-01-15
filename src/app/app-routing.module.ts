@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PeliculaRegistroComponent } from './components/pelicula-registro/pelicula-registro.component';
 import {ConsultarEntradasComponent} from './components/consultar-entradas/consultar-entradas.component';
 import { DetalleCineComponent } from './components/detalle-cine/detalle-cine.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 const routes: Routes = [
   {'path': '', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {'path': 'pelicula-registro', component: PeliculaRegistroComponent},
   {'path': 'consultarEntradas/:id', component: ConsultarEntradasComponent},
   {'path': 'cines/:id', component: DetalleCineComponent},
+  {'path': 'contacto', component: ContactoComponent},
 ];
 
 @NgModule({

@@ -61,9 +61,7 @@ export class DetallePeliculaComponent implements OnInit {
     this.idPelicula = id;
     var values =JSON.parse(localStorage.getItem('usuario'));
     this.idUsuario = values.id;
-    console.log(this.idUsuario);
     this.nombreUsuario = values.nombre;
-    console.log(this.nombreUsuario);
   }
 
   openModal() {
