@@ -22,6 +22,7 @@ import { ConsultarEntradasComponent } from './components/consultar-entradas/cons
 import { CarritoFormDialogComponent } from './components/carrito-form-dialog/carrito-form-dialog.component';
 import { DetalleCineComponent } from './components/detalle-cine/detalle-cine.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ConsultarEntradasComponent,
     CarritoFormDialogComponent,
     DetalleCineComponent,
-    LoaderComponent
+    LoaderComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
