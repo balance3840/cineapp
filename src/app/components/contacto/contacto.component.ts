@@ -1,5 +1,6 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-contacto',
@@ -19,6 +20,15 @@ export class ContactoComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
+  }
+
+  clearForm() {
+    this.myForm.reset({
+      name: '',
+      email: '',
+      message: ''
+    });
+    jQuery("#contactoModal").modal();
   }
 
 }
