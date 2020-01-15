@@ -4,18 +4,22 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center">Iniciar sesión</h5>
-                    <form class="form-signin" (ngSubmit)="onSubmit()">
+                    <form novalidate [formGroup]="usuarioForm" class="form-signin" (ngSubmit)="onSubmit()">
                         <div class="form-label-group">
-                            <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" class="form-control" placeholder="Email address"
+                            <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" formControlName="nombre" class="form-control" placeholder="Email address"
                                 required autofocus>
                             <label for="nombre">Email</label>
+                            <span [hidden]="!(erroresForm.nombre)">
+                                {{erroresForm.nombre}}</span>
                         </div>
                         <div class="form-label-group">
-                            <input type="password" id="password" name="password" [(ngModel)]="usuario.clave" class="form-control" placeholder="Password"
+                            <input type="password" id="password" name="password" [(ngModel)]="usuario.clave" formControlName="clave" class="form-control" placeholder="Password"
                                 required>
                             <label for="password">Contraseña</label>
+                            <span [hidden]="!(erroresForm.clave)">
+                                {{erroresForm.clave}}</span>
                         </div>
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Acceder</button>
+                        <button [disabled]="usuarioForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Acceder</button>
                     </form>
                 </div>
             </div>
